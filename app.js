@@ -1,5 +1,5 @@
 // ===== SỬA Ở ĐÂY =====
-const BUY_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe9wRkSzKJyPt41v9Zq3AaoHWqGXddYtvIsMO1FJvvGNyy8nw/viewform?usp=header'
+const BUY_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe9wRkSzKJyPt41v9Zq3AaoHWqGXddYtvIsMO1FJvvGNyy8nw/viewform'
 const PHONE = '0359842546'
 const EMAIL = 'thienxhe186264@fpt.edu.vn'
 const FB_URL = 'https://www.facebook.com/profile.php?id=61594325117626'
@@ -22,6 +22,24 @@ const PRODUCTS = [
       story: ['As the festival opens, a young woman in a red dress gently lifts the brim of her quai thao hat amid songs echoing from the village yard.',
         'In the Kinh Bắc region, spring brings not only village festivals but also call-and-response love songs. People meet through melody, glances and the slight tilt of a hat brim. The quai thao hat has since become a symbol of the graceful, gentle women of northern Vietnam.',
         'A tilted hat brim, a song exchanged — Vietnamese charm lingers long after the festival.'] } },
+  { id: 'cot-cach-nam-phuong', price: 300000, images: ['images/cot_cach_nam_phuong.png'],
+    vi: { name: 'Cốt cách Nam phương', accent: 'Áo dài xanh rêu & khăn vấn', tagline: 'Một bộ trang phục gợi nhắc về quá khứ; một người mặc mang trong mình tinh thần và khí chất phương Nam vượt thời gian.',
+      story: ['Trong sân một ngôi nhà cổ, chàng trai khoác chiếc áo dài xanh rêu, chỉnh lại khăn vấn rồi bước ra đón khách trong buổi họp mặt đầu xuân.',
+        'Với người Việt xưa, vẻ đẹp của nam giới nằm ở phong thái và nhân cách. Sắc xanh trầm, đường may chỉn chu cùng khăn vấn gợi vẻ điềm đạm, khiêm nhường và lòng trân trọng truyền thống. Dẫu thời thế đổi thay, những giá trị ấy vẫn trường tồn, trở thành một phần bản sắc con người Việt Nam.',
+        'Một bộ trang phục gợi nhắc về quá khứ; một người mặc mang trong mình tinh thần và khí chất phương Nam vượt thời gian.'] },
+    en: { name: 'Southern Poise', accent: 'Moss-green áo dài & headwrap', tagline: 'A costume that recalls the past; a wearer who carries the timeless spirit of the South.',
+      story: ['In the courtyard of an old house, a young man in a moss-green áo dài adjusts his headwrap and steps forward to welcome guests at an early-spring gathering.',
+        'For Vietnamese people of old, a man’s beauty lay in his bearing and character. The deep green tone, the neat tailoring and the headwrap evoke composure, modesty and respect for tradition. Even as times change, these values endure as a core part of Vietnamese identity.',
+        'A costume that recalls the past; a wearer who carries the timeless spirit of the South.'] } },
+  { id: 'net-ngoc-quan-ho', price: 350000, images: ['images/net_ngoc_quan_ho.png'],
+    vi: { name: 'Nét ngọc Quan họ', accent: 'Áo dài nhiều lớp & nón quai thao', tagline: 'Một vành nón nghiêng, một vẻ đẹp tựa ngọc — linh hồn Quan Họ vẫn mãi ngân vang trên mảnh đất Kinh Bắc.',
+      story: ['Giữa lễ hội mùa xuân vùng Kinh Bắc, thiếu nữ khoác những lớp áo dài xanh thẫm, khẽ nghiêng vành nón quai thao bước về phía sân đình, nơi làn điệu Quan Họ đang vang vọng.',
+        'Trong văn hóa Kinh Bắc, vẻ đẹp của người phụ nữ không chỉ ở ngoại hình mà còn ở lời ăn tiếng nói và phong thái thanh tao. Những lớp áo chồng lên nhau cùng chiếc nón quai thao gợi hình ảnh một “liền chị” Quan Họ: đằm thắm, duyên dáng, tỏa sáng như viên ngọc quý được trân trọng qua bao thế hệ.',
+        'Một vành nón nghiêng, một vẻ đẹp tựa ngọc — linh hồn Quan Họ vẫn mãi ngân vang trên mảnh đất Kinh Bắc.'] },
+    en: { name: 'Quan Họ Jade Beauty', accent: 'Layered áo dài & quai thao hat', tagline: 'A tilted hat brim, a beauty like jade — the soul of Quan Họ still rings across the land of Kinh Bắc.',
+      story: ['At a spring festival in Kinh Bắc, a young woman in layers of deep blue áo dài tilts the brim of her quai thao hat and walks toward the village communal yard, where Quan Họ folk songs echo.',
+        'In Kinh Bắc culture, a woman’s beauty is not defined by appearance alone but by her words and refined manner. The layered robes and the signature quai thao hat evoke a Quan Họ “liền chị” — gentle, graceful and radiant like a precious jade treasured through generations.',
+        'A tilted hat brim, a beauty like jade — the soul of Quan Họ still rings across the land of Kinh Bắc.'] } },
 ]
 const L = {
   vi: { nav: ['Trang chủ', 'Sản phẩm', 'Giới thiệu'], manE: 'Từ đôi bàn tay Việt', manT: 'Di sản không nằm yên trong quá khứ.', manP: 'Nó sống trong từng đường kim, nếp áo và câu chuyện được truyền lại bằng sự trân trọng.', heroE: 'Bộ sưu tập thủ công 2026', heroT: 'Mô hình trang phục truyền thống',
@@ -48,6 +66,19 @@ const L = {
 let lang = 'vi'
 try { const s = localStorage.getItem('thsv-lang'); if (s === 'vi' || s === 'en') lang = s } catch (e) {}
 const t = () => L[lang]
+// Tự thử các đuôi ảnh phổ biến nếu file không tải được
+const EXTS = ['.png', '.jpg', '.jpeg', '.webp', '.PNG', '.JPG', '.JPEG', '.WEBP']
+function imgFallback(el) {
+  const m = el.getAttribute('src').match(/^(.*?)(\.[A-Za-z]+)$/)
+  if (!m) return
+  const tried = (el.dataset.tried || '').split('|').filter(Boolean)
+  tried.push(m[2])
+  const next = EXTS.find((e) => !tried.includes(e))
+  el.dataset.tried = tried.join('|')
+  if (next) el.src = m[1] + next
+  else el.onerror = null
+}
+window.imgFallback = imgFallback
 const fmt = (n) => n.toLocaleString('vi-VN') + ' ' + t().unit
 const buy = (cls = 'btn') => `<a class="${cls}" href="${BUY_URL}" target="_blank" rel="noopener">${t().buy}</a>`
 const ic = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`
@@ -76,7 +107,7 @@ function collection() {
   const arrow = ic('<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>')
   const bag = ic('<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>')
   const cards = PRODUCTS.map((x, i) => { const p = x[lang], href = `#/san-pham/${x.id}`; return `<article class="pcard"><span class="pno">0${i + 1}</span>
-<a href="${href}" class="pimg"><img src="${x.images[0]}" alt="${p.name}"></a>
+<a href="${href}" class="pimg"><img src="${x.images[0]}" alt="${p.name}" onerror="imgFallback(this)"></a>
 <div class="pcopy"><p class="pacc">${p.accent}</p><h2>${p.name}</h2><blockquote class="pquote" style="margin-left:0;margin-right:0">“${p.tagline}”</blockquote>
 <div class="pact"><a href="${href}" class="tl">${t().read} ${arrow}</a><a href="${BUY_URL}" target="_blank" rel="noopener" class="tl">${t().order} ${bag}</a></div></div></article>` }).join('')
   return `<section class="section wrap wide"><div class="chead"><div><p class="pacc">${t().eyebrow}</p><h1>${t().colT}</h1></div><p class="clead">${t().lead}</p></div><div class="pgrid">${cards}</div></section>`
@@ -87,7 +118,7 @@ function detail(id) {
   if (!x) return collection()
   const p = x[lang]
   return `<section class="section wrap"><h1>${p.name}</h1><div class="detail"><div><h3>${t().storyH}</h3>${p.story.map((s, i) => `<p${i === p.story.length - 1 ? ' style="color:var(--red)"' : ''}>${s}</p>`).join('')}</div>
-<div style="text-align:center"><img id="pimg" src="${x.images[0]}" alt="${p.name}" style="max-height:380px"></div></div>
+<div style="text-align:center"><img id="pimg" src="${x.images[0]}" alt="${p.name}" style="max-height:380px" onerror="imgFallback(this)"></div></div>
 <div class="actions"><a class="btn line" href="#/san-pham">${t().other}</a>${buy()}</div></section>`
 }
 
@@ -104,7 +135,7 @@ function shell(body, cur) {
   const sw = ['vi', 'en'].map((c) => `<button type="button" class="${lang === c ? 'on' : ''}" onclick="setLang('${c}')">${c.toUpperCase()}</button>`).join('')
   return `<header>${logo}<nav>${a('', n[0])}${a('san-pham', n[1])}${a('gioi-thieu', n[2])}<span class="lang">${sw}</span></nav></header><main>${body}</main>
 <footer><div class="foot">${logo}<div class="col"><b>${t().explore}</b><a href="#/">${n[0]}</a><a href="#/san-pham">${t().footCol}</a><a href="#/gioi-thieu">${t().footAbout}</a></div>
-<div class="col"><b>${t().contact}</b><a href="https://zalo.me/${PHONE}" target="_blank" rel="noopener">${ZALO}${PHONE}</a><a href="mailto:${EMAIL}">${MAIL}${EMAIL}</a></div><div class="col"><b>${t().follow}</b><a href="${FB_URL}" target="_blank" rel="noopener">${FB}Facebook</a></div></div><p class="copy">© 2026 Tinh Hoa Sắc Việt · Gìn giữ hồn Việt trong từng mũi len</p></footer>`
+<div class="col"><b>${t().contact}</b><a href="https://zalo.me/${PHONE}" target="_blank" rel="noopener">${ZALO}${PHONE}</a><a href="mailto:${EMAIL}">${MAIL}${EMAIL}</a></div><div class="col"><b>${t().follow}</b><a href="${FB_URL}" target="_blank" rel="noopener">${FB}Facebook</a></div></div><p class="copy">© 2026 Tinh Hoa Sắc Việt</p></footer>`
 }
 
 function render(scroll = true) {

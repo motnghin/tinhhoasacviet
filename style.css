@@ -70,7 +70,7 @@ header{flex-wrap:wrap;gap:8px}
 .wide{max-width:1180px}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:34px;font-family:'Inter',sans-serif;text-align:left}
 .pcard{position:relative;background:#fffaf3;border:1px solid #e7d8c3;min-height:580px;padding:30px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.pcard:nth-child(2){margin-top:74px}
+.pcard:nth-child(even){margin-top:74px}
 .pcard:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(93,52,25,.11)}
 .pno{position:absolute;right:22px;top:10px;font-size:84px;line-height:1;color:rgba(173,56,35,.08)}
 .pimg{height:390px;display:flex;align-items:center;justify-content:center;position:relative}
@@ -85,7 +85,7 @@ header{flex-wrap:wrap;gap:8px}
 .pact{display:flex;flex-wrap:wrap;gap:18px}
 .tl{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;border-bottom:1px solid #ad3823;padding-bottom:5px;color:#ad3823}
 .tl svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:850px){.pgrid{grid-template-columns:1fr}.pcard:nth-child(2){margin-top:0}}
+@media(max-width:850px){.pgrid{grid-template-columns:1fr}.pcard:nth-child(even){margin-top:0}}
 @media(max-width:560px){.pcard{grid-template-columns:1fr;padding:24px}.pimg{height:300px}.pcopy h2{font-size:35px}}
 /* Đầu trang Bộ sưu tập */
 .chead{display:grid;grid-template-columns:1.3fr .7fr;align-items:end;gap:30px;border-bottom:1px solid #d9cbb7;padding-bottom:42px;margin-bottom:70px;font-family:'Inter',sans-serif;text-align:left}
